@@ -5,7 +5,7 @@ header-img: img/home-bg.png
 email: tmtarpinian@gmail.com
 copyright_name: Trevor Tarpinian
 description: > # this means to ignore newlines until "baseurl:"
-  Career Changer learning code
+  Career Changer Learning Ruby, Sinatra, Front End, SQL, React
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  ferrisbueller66
