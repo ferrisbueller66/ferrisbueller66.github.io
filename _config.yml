@@ -1,11 +1,11 @@
 # Site settings
 author: Trevor Tarpinian
-title: 
+title: Codology
 header-img: img/home-bg.png
 email: tmtarpinian@gmail.com
 copyright_name: Trevor Tarpinian
 description: > # this means to ignore newlines until "baseurl:"
-  
+  Career Changer learning code
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  ferrisbueller66
