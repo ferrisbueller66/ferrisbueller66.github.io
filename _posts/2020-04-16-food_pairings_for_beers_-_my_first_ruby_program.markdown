@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Food Pairings for Beers - My First Ruby Program"
-date:       2020-04-17 02:40:55 +0000
+date:       2020-04-16 22:40:55 -0400
 permalink:  food_pairings_for_beers_-_my_first_ruby_program
 ---
 
@@ -69,4 +69,4 @@ Go to my desk and type 'pasta' in the program. Tell me what beers it returns."
 
 I had 8 beers to try to find at the store.
 
-Try it yourself! You can download my Food Pairings for Beer program on my github page.
+Try it yourself! You can download my [Beer-Pairing App for Food program](https://github.com/ferrisbueller66/beer_pairing_app) on my github page.
