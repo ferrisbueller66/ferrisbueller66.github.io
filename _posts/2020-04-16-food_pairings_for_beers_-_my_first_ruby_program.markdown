@@ -9,7 +9,7 @@ permalink:  food_pairings_for_beers_-_my_first_ruby_program
 
 Our first bootcamp assignment was to demonstrate this knowledge of Ruby, and required either scraping a website or using an API, building a program that instantiated objects from the data we gathered from an outside source. I chose to use an API and spent the weekend before project week looking at various free APIs.
 
-I found [PunkAPI](https://punkapi.com/) and immediately saw something I liked about their data. They included food-pairings as data associated with each beer in their database. We have so many tools  available to find food for wine-pairngs, but I felt like beer hasn't received the same amount of attention. There are general descriptions of what kinds of beers to pair with certain styles of beer (i.e, pizza and stew go well with dark lagers), but no great way to pick a food and find specific beers based on that food. 
+I found [PunkAPI](https://punkapi.com/) and immediately saw something I liked about their data. They included food-pairings as data associated with each beer in their database. We have so many tools  available to find food for wine-pairings, but I felt like beer hasn't received the same amount of attention. There are general descriptions of what kinds of beers to pair with certain styles of beer (i.e, pizza and stew go well with dark lagers), but no great way to pick a food and find specific beers based on that food. 
 
 I had my project idea. I wanted to build a program that a user could type in a food and not only get specific beers that paired with that food, but also meal ideas as well based on that food.
 
@@ -19,7 +19,7 @@ I built this project in 4 stages. First,  I set up a model to successfully impor
 Cli Model (user input) -> Food Model (create new food object) -> Api Model (query data) -> Food (intantiate instances of Food for each returning result).
 
 
-With food and beer objects created, the program could utilize the data from those objects going forward and minimize the times it hit the API for information. I then created helper methods in each model that allowed a user to find beers through food objects or foods through beer objects, as this method in the Beer class method:
+With food and beer objects created, the program could utilize the data from those objects going forward and minimize the times it hit the API for information. I then created helper methods in each model that allowed a user to find beers through food objects or foods through beer objects, as this method in the Beer class:
 
 ``` 
     def self.find_by_food(food)
@@ -32,7 +32,7 @@ My first design delayed instantiation, until after data was called from the API.
 
 I realized that a user could input the same word repeatedly and it would hit the API repeatedly, so I applied a helper method to find any object with the same name at time of user input, to avoid hitting the API unecessarily. That solved that problem, but the next question concerned when to instantiate a food object. At time of user input or after data was pulled from the API?
 
-Feeback from my cohort and instructor was helpful at this point. If I instantiated an instance in the Cli model before running the API, I had the chance of creating food objects for foods that didn't exist in the API. Validation was needed. After a trying a few different ways to accomplish this, I landed on the final order of operation:
+Feedback from my cohort and instructor was helpful at this point. If I instantiated an instance in the Cli model before running the API, I had the chance of creating food objects for foods that didn't exist in the API. Validation was needed. After a trying a few different ways to accomplish this, I landed on the final order of operation:
 
 1. User input entered in the Cli method
 2. The Cli method used a helper method to detect if a food object with that name was already created (if so, it simply returned the info on the object)
@@ -69,6 +69,7 @@ Go to my desk and type 'pasta' in the program. Tell me what beers it returns."
 
 
 I had 8 beers to try to find at the store.
+
 
 
 Try it yourself! You can download my [Beer-Pairing App for Food program](https://github.com/ferrisbueller66/beer_pairing_app) on my github page.
