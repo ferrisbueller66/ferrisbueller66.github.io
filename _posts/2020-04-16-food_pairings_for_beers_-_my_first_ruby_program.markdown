@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Food Pairings for Beers - My First Ruby Program"
+title:      "Beer-Pairings App for Food - My First Ruby Program"
 date:       2020-04-16 22:40:55 -0400
 permalink:  food_pairings_for_beers_-_my_first_ruby_program
 ---
@@ -33,9 +33,10 @@ My first design delayed instantiation, until after data was called from the API.
 I realized that a user could input the same word repeatedly and it would hit the API repeatedly, so I applied a helper method to find any object with the same name at time of user input, to avoid hitting the API unecessarily. That solved that problem, but the next question concerned when to instantiate a food object. At time of user input or after data was pulled from the API?
 
 Feeback from my cohort and instructor was helpful at this point. If I instantiated an instance in the Cli model before running the API, I had the chance of creating food objects for foods that didn't exist in the API. Validation was needed. After a trying a few different ways to accomplish this, I landed on the final order of operation:
-1. user input entered in the Cli method
-2. the Cli method used a helper method to detect if a food object with that name was already created (if so, it simply returned the info on the object)
-3. if no object was detected, the input went to the Api model to determine if the input was a viable query value
+
+1. User input entered in the Cli method
+2. The Cli method used a helper method to detect if a food object with that name was already created (if so, it simply returned the info on the object)
+3. If no object was detected, the input went to the Api model to determine if the input was a viable query value
 4. If not, it prompted the user to input again with a different value
 5. Otherwise, the API successfully retrieved beers, which were then instantiated as Beer objects.
 6. Last, Beer objects were associated with Food objects and vice versa to create reciprocity.
@@ -68,5 +69,6 @@ Go to my desk and type 'pasta' in the program. Tell me what beers it returns."
 
 
 I had 8 beers to try to find at the store.
+
 
 Try it yourself! You can download my [Beer-Pairing App for Food program](https://github.com/ferrisbueller66/beer_pairing_app) on my github page.
