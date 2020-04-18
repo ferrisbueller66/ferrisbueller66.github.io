@@ -5,7 +5,7 @@ date:       2020-04-16 22:40:55 -0400
 permalink:  food_pairings_for_beers_-_my_first_ruby_program
 ---
 
-25 days ago I didn't know the first thing about programming and really couldn't code anything. Almost 4 weeks into bootcamp, and I am amazed at what I've learned, particularly in Ruby. I understand methods, classes, class methods, and most importantly object orientation. Utilization of existing objects in a ruby program is efficient.
+25 days ago I didn't know the first thing about programming and really couldn't code anything. Almost 4 weeks into bootcamp, I am now amazed at what I've learned, particularly in Ruby. I understand methods, classes, class methods, and most importantly object orientation. Utilization of existing objects in a ruby program is efficient.
 
 Our first bootcamp assignment was to demonstrate this knowledge of Ruby, and required either scraping a website or using an API, building a program that instantiated objects from the data we gathered from an outside source. I chose to use an API and spent the weekend before project week looking at various free APIs.
 
@@ -30,7 +30,7 @@ With food and beer objects created, the program could utilize the data from thos
 I believe what this project taught me most was how to think about instantiating objects in the workflow of the program.
 My first design delayed instantiation, until after data was called from the API. Once the API returned a list of beers, I would have the API model instantiate each beer result as a beer object, and create a food object from the user's input that queried the API (a food word).
 
-I realized that a user could input the same word repeatedly and it would hit the API repeatedly, so I applied a helper method to find any object with the same name at time of user input, to avoid hitting the API unecessarily. That solved that problem, but the next question concerned when to instantiate a food object. At time of user input or after data was pulled from the API?
+I realized that a user could input the same word repeatedly and it would then hit the API repeatedly (something I wanted to avoid), so I applied a helper method to find any object with the same name at time of user input, to avoid hitting the API unecessarily. That problem was solved, but the next question concerned when to instantiate a food object. At time of user input or after data was pulled from the API?
 
 Feedback from my cohort and instructor was helpful at this point. If I instantiated an instance in the Cli model before running the API, I had the chance of creating food objects for foods that didn't exist in the API. Validation was needed. After a trying a few different ways to accomplish this, I landed on the final order of operation:
 
@@ -73,3 +73,6 @@ I had 8 beers to try to find at the store.
 
 
 Try it yourself! You can download my [Beer-Pairing App for Food program](https://github.com/ferrisbueller66/beer_pairing_app) on my github page.
+
+
+Special thanks to Robert Gu for help debugging an issue I was having with instantiation, and to Nancy Noyes for helping with line 2 of the Api model code above.
