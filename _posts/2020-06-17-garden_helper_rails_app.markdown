@@ -96,7 +96,7 @@ When a Harvest instance was instantiated, the method would be called to trip "ha
 This came in handy, since I eventually created a scope queried all harvested plants:
 
 ```
-https://github.com/ferrisbueller66/garden_helper
+scope :been_harvested, -> { where(harvested: true) }
 ```
 
 Want to see more?
