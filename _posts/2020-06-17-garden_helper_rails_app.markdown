@@ -93,7 +93,7 @@ In the Plant model, I created a boolean database table column called "Harvested"
 
 When a Harvest instance was instantiated, the method would be called to trip "harvested" attribute of the Plant it belonged to, from false to true.
 	
-This came in handy, since I eventually created a scope queried all harvested plants:
+This came in handy, since I eventually created a scope that queried all harvested plants:
 
 ```
 scope :been_harvested, -> { where(harvested: true) }
