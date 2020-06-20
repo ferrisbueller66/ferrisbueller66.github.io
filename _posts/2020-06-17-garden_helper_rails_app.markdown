@@ -82,12 +82,15 @@ In the Plant model, I created a boolean database table column called "Harvested"
         end
     end
 		```
+		
 		then called that method in the Harvest controller create action:
-		```
+		
+```
 		  @harvest = Harvest.create(harvest_params)
     if @harvest.valid?
       @harvest.plant.harvest_status
-			```
+```
+
 When a Harvest instance was instantiated, the method would be called to trip "harvested" attribute of the Plant it belonged to, from false to true.
 	
 This came in handy, since I eventually created a scope queried all harvested plants:
@@ -95,6 +98,7 @@ This came in handy, since I eventually created a scope queried all harvested pla
 ```
 https://github.com/ferrisbueller66/garden_helper
 ```
+
 Want to see more?
 
 Check out my repo of [the Garden Helper at Github](https://github.com/ferrisbueller66/garden_helper).
