@@ -81,9 +81,9 @@ In the Plant model, I created a boolean database table column called "Harvested"
 				self.save
         end
     end
-		```
+```
 		
-		then called that method in the Harvest controller create action:
+then called that method in the Harvest controller create action:
 		
 ```
 		  @harvest = Harvest.create(harvest_params)
