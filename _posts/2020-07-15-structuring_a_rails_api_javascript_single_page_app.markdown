@@ -13,7 +13,7 @@ It didn't take long for the div and id references in the html to start getting c
 
 ![](https://media3.giphy.com/media/ZFoTMBgPFwhcmWgtbp/source.gif)
 
-The first 25% of the project was a bunch of trial-and-error. Should I put this reference in a footer? Nope, it now shows up everwhere? Should this other anchor go in the main body? Now it renders or clears out unexpectedly due to different javascript functions.
+The first 25% of the project was a bunch of trial-and-error. Should I put this reference in a footer? Nope. It now shows up everwhere. Should this other anchor go in the main body? Now it renders or clears out unexpectedly due to different javascript functions.
 
 The next time I approach a similar project I'll whiteboard the design differently. I usually map out all the high level features like the models, their attributes and associations, along with the overall project file structure. But I think I'll add a second whiteboard in the future for my html and js files. This exercise will map out all the eventListeners I expect to make in the js files, and all the corresponding anchors I anticpate needed to make in the html as a result. This might help mitigate some of the unintentional div mania.
 ## Keeping track of classes and ids
