@@ -1,11 +1,11 @@
 ---
 layout: post
 title:      "Structuring a Rails API/JavaScript Single Page App"
-date:       2020-07-15 23:32:38 +0000
+date:       2020-07-15 19:32:39 -0400
 permalink:  structuring_a_rails_api_javascript_single_page_app
 ---
 
-I recently worked on a small single-page application using a rails a Javascript frontend. The app is designed to track items a user plans to donate and deliver to a food pantry or non-profit (like Goodwill). Although I had high hopes about the app being practical and for a good cause, it's first iteration feels like a glorified reverse grocery-shopping list. However, down the road, this code could be absorbed into the user account of a non-profit's website, allowing them to track what they've donated, and plan future donations. This could also integrate into the non-profit's accounting and help streamline calculations for tax deductions, particularly since the user will be executing some of the data input.
+I recently worked on a small single-page application using a rails a Javascript frontend. The app is designed to track items a user plans to donate and deliver to a food pantry or non-profit (like Goodwill). Although I had high hopes about the app being practical and for a good cause, its first iteration feels like a glorified reverse grocery-shopping list. However, down the road, this code could be absorbed into the user account of a non-profit's website, allowing them to track what they've donated, and plan future donations. This could also integrate into the non-profit's accounting and help streamline calculations for tax deductions, particularly since the user will be executing some of the data input.
 
 But for now, this single application remains simple. It renders all the past and pending visits to a non-profit along with all the items designated to be donated in that visit. "Visit" and "Item" are objects that user instantiates and consequently get persisted in Postgres. Rather than wallk through the sections of code or explain details of this project, I want to rather discuss some of the structuring behind this project, because code organization posed one of the more challenging aspects of this app.
 ## Thinking Through Outline and Structure
