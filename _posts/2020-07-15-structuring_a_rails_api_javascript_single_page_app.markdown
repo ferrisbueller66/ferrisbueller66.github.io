@@ -78,7 +78,7 @@ This solved everything: it quickly deletes the children and the parent with only
 
 ![](https://i.imgur.com/tS5Tv0L.png)
 
-BIG BIG thank you to my colleague Arryn Boniface for tipping me off to this ActiveRecord feature. Check out her blog here.
+BIG BIG thank you to my colleague Arryn Boniface for tipping me off to this ActiveRecord feature. [Check out her blog here](https://ronniekram.github.io/).
 ## Fun Features
 I had time to investigate and was able to implement a few features I felt were not only fun but enhanced the user experience.
 ### Less Work, More Play
