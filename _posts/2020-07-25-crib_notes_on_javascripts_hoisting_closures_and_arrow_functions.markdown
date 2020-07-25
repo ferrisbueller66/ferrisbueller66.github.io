@@ -12,7 +12,7 @@ Additionally, Sukhjinder Arora did 3 consecutive pieces on the topic in 2018 (Fi
 
 To do that we need to start with terminology. Let's get some definitions set, so we're all on the same page with the terms we're using.
 
-## First some basic, basic terminology
+## Level 1: Basic, Basic Terminology
 A variable is *declared*:
 
 `let coffee`
@@ -63,7 +63,7 @@ Take a quick break; get up and walk around, and then take a minute to review bef
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
-## Level 1: Basic Terminology
+## Level 2: Basic Terminology
 The JS engine takes to passes to run your code:
 A. The first pass is the compilation phase in which it does 3 things:
 
@@ -87,7 +87,7 @@ Take a quick break; get up and walk around, and then take a minute to review bef
 2. What happens to variables and functions in each stage?
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-## Level 3 (Hoisting) - Some not so basic terminology
+## Level 3: Hoisting
 
 If you're coding in repl.it or another IDE, run this code:
 ```
@@ -142,7 +142,7 @@ hoist yourself up, buddy! (too soon?)
 4. Give 2 preventive measure to avoid these issues.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-## Level 4 (Execution Context)
+## Level 4: Execution Context
 Again, let's review the two-step process of the JS engine:
 
 The JS engine takes to passes to run your code:
