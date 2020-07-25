@@ -62,11 +62,11 @@ Take a quick break; get up and walk around, and then take a minute to review bef
 6. Write an example of both declaring and assigning value to a variable
 ## Second, now some basic terminology
 The JS engine takes to passes to run your code:
-1. The first pass is the compilation phase in which it does 3 things:
-*as it hits each variable and function declaration, it allocated memory for them
-*it creates an execution context for each function
-*it sets the references to any and all parent scopes for that particular execution context
-2. The execution phase then runs through the program again assigning values to variables (initializing them) and executing any functions that are invoked (that's right. I'm feeling that good about myself right now).
+A. The first pass is the compilation phase in which it does 3 things:
+1. as it hits each variable and function declaration, it allocated memory for them
+2. it creates an execution context for each function
+3. it sets the references to any and all parent scopes for that particular execution context
+B. The execution phase then runs through the program again assigning values to variables (initializing them) and executing any functions that are invoked (that's right. I'm feeling that good about myself right now).
 
 We just covered a ton in those 5 bullet points, so let's take some time to unpack them.
 
@@ -138,6 +138,14 @@ hoist yourself up, buddy! (too soon?)
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## Level 4 (Execution Context)
+Again, let's review the two-step process of the JS engine:
+
+The JS engine takes to passes to run your code:
+A. The first pass is the compilation phase in which it does 3 things:
+1. as it hits each variable and function declaration, it allocated memory for them
+2. it creates an execution context for each function
+3. it sets the references to any and all parent scopes for that particular execution context (lexing phase)
+B. The execution phase then runs through the program again assigning values to variables (initializing them) and executing any functions that are invoked (that's right. I'm feeling that good about myself right now).
 
 Execution Context
 Global, Function, and Scope
