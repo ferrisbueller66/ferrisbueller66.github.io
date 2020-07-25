@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Crib Notes on Javascript's Hoisting, Closures, and Arrow Functions"
-date:       2020-07-25 05:40:00 +0000
+date:       2020-07-25 01:40:01 -0400
 permalink:  crib_notes_on_javascripts_hoisting_closures_and_arrow_functions
 ---
 
@@ -60,6 +60,8 @@ Take a quick break; get up and walk around, and then take a minute to review bef
 4. Write an example of declaring a variable
 5. Write an example of assigning value to a variable
 6. Write an example of both declaring and assigning value to a variable
+
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 ## Second, now some basic terminology
 The JS engine takes to passes to run your code:
