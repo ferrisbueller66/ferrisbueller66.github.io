@@ -115,9 +115,33 @@ This is an example of an issue caused by hoisting.
 Before you read further, think about these 2 lines of code. What are the phases of the JS engine when it runs?
 Can you explain what's happening?
 
-In the compilation phase, var coffee is being declared as a variable, but it is not assigned value at this phase - that comes in the execution phase. When the execution phase arrives, the variable is called *before* the JS engine has seen code to assign it value. So in line 1, JS initializes it with a value of undefined. Then in line 2 it assigns the variable *coffee* the value ""what I need if I'm going to explain Hoisting to you."
+In the compilation phase, `var coffee` is being declared as a variable, but it is not assigned value at this phase - that comes in the execution phase. When the execution phase arrives, the variable is called *before* the JS engine has seen code to assign it value. So in line 1, JS initializes it with a value of undefined. Then in line 2 it assigns the variable *coffee* the value ""what I need if I'm going to explain Hoisting to you."
 
 This is hoisting. Hoisting is a lousy term. Your code doesn't actually hoist up or move. It is simply an issue caused by the order of operations in the JS engine. Hoisting causes issues when you call a variable before assigning it value and initializing it. That's it.
+
+The same concept applies to functions, although without the hiccups resulting from *var*.
+The [MDN web docs on hoisting ](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)uses the following example:
+
+```
+catName("Chloe");
+
+function catName(name) {
+  console.log("My cat's name is " + name);
+}
+```
+
+This code does not break. Reading this code literally from top to bottom, the function catName is invoked and then it is declared. However, the 2-phase JS engine, first goes through all the code looking for function and variable declarations, and allocating memory for them. In the execution phase, the functions get executed. For functions, the JS engine processes the above code like this:
+
+
+```
+function catName(name) {
+  console.log("My cat's name is " + name);
+}
+
+catName("Chloe");
+```
+
+It is *AS IF *the function declaration is lifted up above the line of code invoking the function...which is where the term hoisting derived. But your actual code doesn't move. It is simply an description of what's going on during the 2-phase process of the JS engine.
 
 2 things can prevent problems caused by "hoisting":
 
@@ -150,10 +174,82 @@ A. The first pass is the compilation phase in which it does 3 things:
 1. as it hits each variable and function declaration, it allocated memory for them
 2. it creates an execution context for each function
 3. it sets the references to any and all parent scopes for that particular execution context (lexing phase)
-B. The execution phase then runs through the program again assigning values to variables (initializing them) and executing any functions that are invoked (that's right. I'm feeling that good about myself right now).
+B. The execution phase then runs through the program again assigning values to variables (initializing them) and executing any functions that are invoked.
 
-Execution Context
-Global, Function, and Scope
+In the compilation phase, when the JS engine is allocating memory to each of the function declarations it comes across, it also sets the functions execution context for each function. This is also 'scope.' Part of the confusion the results from all this is the multiple terms used for the same thing.
+
+[MDN web docs on scope define](https://developer.mozilla.org/en-US/docs/Glossary/Scope) scope as "current context of execution." 
+
+Let's use a very simple example to start. Copy, paste, and run in repl.it:
+
+```
+function practice(){
+  const firstVariable = 3 
+  const secondVariable = 7
+  console.log(firstVariable + secondVariable)
+}
+
+practice()
+```
+
+When the JS engine runs its compilation phase, it sets the scope (execution context) of the function *practice*. Meaning, anything within that particular function has access to the function's variables, in this case *firstVariable* and *secondVariable*, which is why the console.log works.
+
+Let's pretend this function is in a JS file and now let's add only 1 other line of code to the file:
+
+```
+const thirdVariable = 10
+
+function practice(){
+  const firstVariable = 3 
+  const secondVariable = 7
+  console.log(firstVariable + secondVariable + thirdVariable)
+}
+
+practice()
+```
+
+The result of running the function `practice()` is that console.log outputs 20.
+
+The variable `thirdVariable` is outside of the function `practice()` but still inside the file. During the compilation phase, the variable `thirdVariable` is established in the global execution context of the JS file. Functions as given their own execution context within themselves (aka function scope), and have access to their 'outer scope', which in this case would be the global execution context. The results of this important. The function `practice()` has access the variable `thirdVariable` but the global execution context does not have access the variables inside the function `practice()`. To quote MDN web docs "child scopes have access to parent scopes, but not vice versa."
+
+If we put a function inside the function `practice()`, that function would have access to it's execution context, the execution context of the function `practice()`, and the global execution context. This can go on and on. This concept of "access" is called scope chain.
+
+Last, conditionals and loops/iterations form blocks. These block are assigned their own execution context (scope!). 
+
+The iteration 'number' in the code below is block scoped:
+
+```
+const fakeArray = [10, 9, 8, 7, 6]
+
+function newPractice(){
+  for (const number of fakeArray){
+    console.log(number + 1)
+  }
+}
+
+newPractice()
+```
+If you added 'number' after the final line of code newPractice(), you'd get a reference error:
+`//=> ReferenceError: number is not defined`
+
+Just like function scope, values in the iteration are not accessible outside of the block....unless VAR is involved.
+Meaning, if you declared a variable with var in the block, you could call that variable outside of the block. Since it's unexpected to have constrained variables spill out of a block like this, avoid using var inside a block. Declaring variables with *let* and *const* is preferred since they are both block-scoped.
+
+We're about to hit the last major concept (closure), so this is a good time to take a step back and review.
+Tokka's here to hurt you witha quiz.
+
+![](https://i.imgur.com/RUy9dLv.png)
+
+### Level 4 Quiz:
+
+1. What are the three types of scope?
+2. What is a fancier way to say scope?
+3. What stage of processing by the JS engine does scope get established?
+3. Specifically describe what issues a variable with *var* can have within a block.
+4. Can a function have access to more than just it's execution scope? Give two different examples.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+## Level 5: Lexical Scoping
 
 Closures
 Arrow Functions to follow in the next 48 hours...!
