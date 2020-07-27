@@ -6,7 +6,7 @@ permalink:  crib_notes_on_javascripts_hoisting_closures_and_arrow_functions
 ---
 
 
-I won't try to reinvent the wheel. Plenty has been written on these three related topics in Javascript. The MDN material is robust with resources (such as these entries on Closures and Hoisting).
+I won't try to reinvent the wheel. Plenty has been written on these three related topics in Javascript. The MDN material is robust with resources (such as these entries on [Closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) and [Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
 Additionally, Sukhjinder Arora did 3 consecutive pieces on the topic in 2018 (First on Hoisting, then on Closures, then on scope and scope chain). What do I have to add to these topics? Nothing other than consolidation. Sukhjinder has done a great job and I encourage you all to read his 3 blogs. My attempt here is to consolidate everything into one single blog for easier reference, rearrange the logic and ordering of the material to make it more accessible, and highlight Javascript terminology to ensure these concepts are understand.
 
 
@@ -56,7 +56,7 @@ Take a quick break; get up and walk around, and then take a minute to review bef
 
 1. What is the terminology used for creating variables and functions?
 2. What are 3 important types of variables in JS?
-3. How are each 
+3. How does the JS engine assign/recognize their assigned value differently?
 4. Write an example of declaring a variable
 5. Write an example of assigning value to a variable
 6. Write an example of both declaring and assigning value to a variable
@@ -75,7 +75,7 @@ B. The execution phase then runs through the program again assigning values to v
 
 We just covered a ton in those 5 bullet points, so let's take some time to unpack them.
 
-Take a quick break; get up and walk around, and then take a minute to review before you tackle a quiz, presented to you by Teenage Mutant Ninja Turtles 3 low level boss, GroundChuck.
+Take a quick break; get up and walk around, and then take a minute to review before you tackle a quiz, presented to you by Ninja Turtles 3 low level boss, GroundChuck.
 
 
 
@@ -141,7 +141,7 @@ function catName(name) {
 catName("Chloe");
 ```
 
-It is *AS IF *the function declaration is lifted up above the line of code invoking the function...which is where the term hoisting derived. But your actual code doesn't move. It is simply an description of what's going on during the 2-phase process of the JS engine.
+It is *AS IF *the function declaration is lifted up above the line of code invoking the function...which is where the term hoisting derives. But your actual code doesn't move. It is simply an description of what's going on during the 2-phase process of the JS engine.
 
 2 things can prevent problems caused by "hoisting":
 
@@ -236,7 +236,7 @@ Just like function scope, values in the iteration are not accessible outside of 
 Meaning, if you declared a variable with var in the block, you could call that variable outside of the block. Since it's unexpected to have constrained variables spill out of a block like this, avoid using var inside a block. Declaring variables with *let* and *const* is preferred since they are both block-scoped.
 
 We're about to hit the last major concept (closure), so this is a good time to take a step back and review.
-Tokka's here to hurt you witha quiz.
+Tokka's here to hurt you with a quiz.
 
 ![](https://i.imgur.com/RUy9dLv.png)
 
