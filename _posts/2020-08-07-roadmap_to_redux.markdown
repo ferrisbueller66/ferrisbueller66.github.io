@@ -134,9 +134,9 @@ This is where I started having issues and taking a step back helps tremendously.
 
 The Redux 3-part process takes an action, reduces with the old state, and dispatches as the new state.
 
-We have a `createStore()` function that has an action and a dispatch function inside of it, but calls a reducer as an argument from without.
+We have a Redux `createStore()` function that has an action and a dispatch function inside of it, but calls a reducer as an argument from without.
 
-Good so far? Here's where I got derailed. Look back at our template reducer code:
+Good so far? Here's where I got derailed. Look back at our template *reducer* code:
 
 ```
 function changeState(state, action){      
@@ -151,7 +151,7 @@ function changeState(state, action){
 }
 ```
 
-The reducer needs an action to return a new, reduced state. But that action is inside of the `createStore()` function...and `createStore()` calls the reducer as an argument, in order to execute its dispatch function:
+The reducer needs an action to return a new, reduced state. But that action is inside of the `createStore()` function, specifically, inside of the `dispatch()` function...and `createStore()` calls the reducer as an argument, in order to execute its dispatch function:
 
 ```
 function dispatch(action){
@@ -160,14 +160,13 @@ function dispatch(action){
 }
 
 ```
-
-The reducer needs a state and action to process. The action would be passed down from the dispatch function to the reducer as an argument. But since the reducer is now separate from Redux' `createStore()`, we need to pass the dispatch action to a component (here, the App component) as props. Thus, in the app component:
+So we have bit of a chicken-and-egg dilemma here. The reducer needs a state and action to process. The action would be passed down from the dispatch function to the reducer as an argument. But since the reducer is now separate from Redux' `createStore()`, we need to pass the dispatch to a component (here, the App component) as props. Thus, in the app component:
 
 
 ```
 const mapDispatchToProps = dispatch => {
   return {
-    increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
+    actionType: () => dispatch({ type: '<write your action type here>' })
   };
 };
 ```
@@ -187,5 +186,5 @@ function dispatch(action){
 }
 ```
 
-If this makes sense, then you've made it to then end of our road trip.
+If this makes sense, then you've made it to then end of our road trip and whatever the Redux version of WallyWorld is.
 ![](https://i.imgur.com/xXqSNQj.gif)
