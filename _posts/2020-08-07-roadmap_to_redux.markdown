@@ -73,8 +73,6 @@ To restate, Redux's 3-part process triggers an action, which goes to a reducer a
 ## Make the State Global
 These examples have assumed that all of this code is in a single js file, and therefore the "state" being updated is actually local. Redux is meant to make a global state accessible, so now we need to look at setting up a global state.
 
-## Access Global State
-
 Redux has a function called `createStore()`, that:
 1. maintains a global state
 2. reduces that state with an action
@@ -88,8 +86,106 @@ Redux has a function called `createStore()`, that:
  
 The  `createStore()` method is generic. It always returns a store (given a reducer) that will have a dispatch method and a getState method. The reducers will be unique to a program and therefore written separately.
 
+## Access Global State
 
+To access this global state created by createStore(), we add one more function from react-redux to the component (ideally a container) that needs access to global state:
+
+`import { connect } from 'react-redux';`
+
+In short, this connects `createStore()` to the component. Now that we're "connected" to the store, we need to actually access the store of data. We then utilize 2 functions within that component.
 
 ### Map State to Props
 
+The first is `mapStateToProps `. This allows us to pass what data we want from the store into the component as props.
+
+```
+const mapStateToProps = state => {
+  return {
+    items: state.items
+  };
+};
+
+```
+
+Simple enough. Now if we called `{this.props.items.}` within our component, we'd have access to the values in the store's "items". If you had 12 different key/value pairs in your store, and only needed 2 in a particular component, you only list out what you need in the `mapStateToProps()` function.
+
+
 ### Map Dispatch to Props 
+
+This is the part in our little roadtrip where the things might come undone.
+
+![](https://i.imgur.com/URjbOYR.gif)
+
+But no worries, we'll channel the indefatigable optimism of Clark Griswold and get through.
+
+The component accessing global state through Redux will utilize one more function provided by redux: `mapDispatchToProps()`.
+
+A boilerplate for this function looks like: 
+
+```
+const mapDispatchToProps = dispatch => {
+  return {
+    increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
+  };
+};
+```
+
+This is where I started having issues and taking a step back helps tremendously. Let's review:
+
+The Redux 3-part process takes an action, reduces with the old state, and dispatches as the new state.
+
+We have a `createStore()` function that has an action and a dispatch function inside of it, but calls a reducer as an argument from without.
+
+Good so far? Here's where I got derailed. Look back at our template reducer code:
+
+```
+function changeState(state, action){      
+  switch (action.type) {
+    case 'INCREASE_COUNT':
+      return {count: state.count + 1}
+    case 'DECREASE_COUNT':
+      return {count: state.count - 1}
+    default:
+      return state;
+  }
+}
+```
+
+The reducer needs an action to return a new, reduced state. But that action is inside of the `createStore()` function...and `createStore()` calls the reducer as an argument, in order to execute its dispatch function:
+
+```
+function dispatch(action){
+  state = changeState(state, action)
+  return state
+}
+
+```
+
+The reducer needs a state and action to process. The action would be passed down from the dispatch function to the reducer as an argument. But since the reducer is now separate from Redux' `createStore()`, we need to pass the dispatch action to a component (here, the App component) as props. Thus, in the app component:
+
+
+```
+const mapDispatchToProps = dispatch => {
+  return {
+    increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
+  };
+};
+```
+
+This function-as-props is then is called within the App component (here, using an event as the trigger):
+
+`OnClick = () => { this.props.increaseCount() }`
+
+The OnClick event then calls the props increaseCount, which in mapDispatchToProps assigned the dispatch funtion with the action.type  INCREASE_COUNT.
+
+Dispatch then executes with this action, calling the reducer and passing the action as an argument to the reducer. The reducer executes, which returns a new state to dispatch function, which returns the state to the store in  `createStore()`:
+```
+
+function dispatch(action){
+  state = changeState(state, action)
+  return state
+}
+```
+
+If this makes sense, then you've made it to then end of our road trip.
+![](https://i.imgur.com/xXqSNQj.gif)
