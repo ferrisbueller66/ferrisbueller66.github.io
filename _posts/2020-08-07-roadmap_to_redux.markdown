@@ -202,6 +202,8 @@ function dispatch(action){
 }
 ```
 
+`dispatch()` knows to call the `changeState()` reducer because we passed the reducer into the  `createStore()` in the index.js file. This works now with only 1 reducer in your code, but i will have to be modified as other reducers are built.
+
 If this makes sense, then you've made it to then end of our road trip and whatever the Redux version of WallyWorld is.
 
 ![](https://i.imgur.com/xXqSNQj.gif)
