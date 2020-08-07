@@ -261,7 +261,7 @@ We have to end with Super Shredder...and there's no way he's letting you off the
 
 ![](https://i.imgur.com/VDJAuSj.png)
 
-<spacer>
+
 
 ### Level 5 Quiz:
 
