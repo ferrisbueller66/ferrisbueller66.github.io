@@ -169,7 +169,22 @@ const mapDispatchToProps = dispatch => {
     actionType: () => dispatch({ type: '<write your action type here>' })
   };
 };
+
 ```
+
+There is one other VERY important reason we need to pass the `dispatch()` function as props to the component. The vanilla `ispatch()` function does not come with any actions defined. It simply passes them in as an argument. So by funneling the dispatch to a component as props, it gives us the chance to assign the dispatch an action, before executing it (and consequently executing the reducer). One more time, the example of the mapDispatchToProps method *IN* the App component looks like this, being passed an action type of your choosing:
+
+```
+const mapDispatchToProps = dispatch => {
+  return {
+    increaseCount: () => dispatch({ type: 'INCREASE_COUNT' })
+  };
+};
+
+```
+
+
+## Putting It All Together
 
 This function-as-props is then is called within the App component (here, using an event as the trigger):
 
@@ -178,6 +193,7 @@ This function-as-props is then is called within the App component (here, using a
 The OnClick event then calls the props increaseCount, which in mapDispatchToProps assigned the dispatch funtion with the action.type  INCREASE_COUNT.
 
 Dispatch then executes with this action, calling the reducer and passing the action as an argument to the reducer. The reducer executes, which returns a new state to dispatch function, which returns the state to the store in  `createStore()`:
+
 ```
 
 function dispatch(action){
