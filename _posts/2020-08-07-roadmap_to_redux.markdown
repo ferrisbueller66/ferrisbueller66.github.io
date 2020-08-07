@@ -7,7 +7,7 @@ permalink:  roadmap_to_redux
 
 
 
-The goal of Redux is to allow components access to values from a global state, reducing prop drilling and confusing and complex passing down of values from parents, to children, to grandchildren components. Jumping into the middle of Redux can be confusing, and although it has a several recipes that can simply be followed, I find I can understand these smaller pieces of Redux once I have a big-picture view of how they all work together. So with that, let's go on a little road trip.
+The goal of Redux is to allow components access to values from a global state, reducing prop drilling as well as confusing and complex passing down of values from parents, to children, to grandchildren components. Jumping into the middle of Redux can be confusing, and although it has a several recipes that can simply be followed, I find I can understand these smaller pieces of Redux once I have a big-picture view of how they all work together. So with that, let's go on a little road trip.
 
 ![](https://i.imgur.com/wzLtSHf.gif)
 
@@ -203,4 +203,5 @@ function dispatch(action){
 ```
 
 If this makes sense, then you've made it to then end of our road trip and whatever the Redux version of WallyWorld is.
+
 ![](https://i.imgur.com/xXqSNQj.gif)
