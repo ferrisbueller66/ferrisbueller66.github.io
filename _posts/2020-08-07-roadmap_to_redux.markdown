@@ -63,7 +63,7 @@ function dispatch(action){
 ```
 
 The dispatch incorporates both the action and the reducer.
-To restate, Redux's 3-part process triggers an action, which goes to a reducer along with current state, resulting in dispatchng this new redution as the new state.
+To restate, Redux's 3-part process triggers an action, which goes to a reducer along with current state, resulting in dispatchng this new reduction as the new state.
 
 
 1. Write the reducer
