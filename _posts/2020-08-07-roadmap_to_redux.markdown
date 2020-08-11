@@ -80,7 +80,7 @@ Redux has a function called `createStore()`, that:
 4. stores the new state
 5. allows access to global state with a getter method getState()
 
-4 of the 5 of these are contained within the `createStore()` function. The only thing mentioned above that is external to the function is a the reducer it uses, which it takes as an argument. So the function can be illustrated like this:
+4 of the 5 of these arecontained within the `createStore()` function. The only thing mentioned above that is external to the function is a the reducer it uses, which it takes as an argument. So the function can be illustrated like this:
 
  `createStore(reducer)` 
  
