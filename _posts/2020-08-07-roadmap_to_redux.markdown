@@ -13,7 +13,7 @@ The goal of Redux is to allow components access to values from a global state, r
 
 ## 1. The Goal of Using Redux is to Update and Access Global State
 
-Redux updates we trigger an action, that goes to a reducer, resulting in updated state. This is the essential 3-part process of Redux. It has a few more moving parts, but this is the gist of its existence. So let's break these 3 pieces down for a moment.
+We utilize Redux to trigger an action, that goes to a reducer, resulting in updated state. This is the essential 3-part process of Redux. It has a few more moving parts, but this is the gist of its existence. So let's break these 3 pieces down for a moment.
 
 ### Trigger an Action
 
@@ -34,7 +34,7 @@ action = {
 ```
 
 ### Use a Reducer to Reduce Current State with the Action's Payload
-A javascript function (a reducer, a pure function) to process the action to a state
+We then call a javascript function (a "reducer," a pure function) to process the action to a state
 
 ```
 function changeState(state, action){      
@@ -52,7 +52,7 @@ function changeState(state, action){
 
 ### Use a "Dispatch" Function to Actually Change the State
 
-Then need a way to persist this info to the state (right now the reducer just simply returns a value), so use a dispatch function:
+We need a way to persist this info to the state (right now the reducer just simply returns a value), so we use a dispatch function:
 
 ```
 function dispatch(action){
@@ -151,7 +151,7 @@ function changeState(state, action){
 }
 ```
 
-The reducer needs an action to return a new, reduced state. But that action is inside of the `createStore()` function, specifically, inside of the `dispatch()` function...and `createStore()` calls the reducer as an argument, in order to execute its dispatch function:
+The reducer needs an action to return a new, reduced state. But that action is inside of the `createStore()` function, specifically, the argument of the `dispatch()` function...and `createStore()` calls the reducer as an argument, in order to execute its dispatch function:
 
 ```
 function dispatch(action){
@@ -160,7 +160,7 @@ function dispatch(action){
 }
 
 ```
-So we have bit of a chicken-and-egg dilemma here. The reducer needs a state and action to process. The action would be passed down from the dispatch function to the reducer as an argument. But since the reducer is now separate from Redux' `createStore()`, we need to pass the dispatch to a component (here, the App component) as props. Thus, in the app component:
+So we have bit of a chicken-and-egg dilemma here. The reducer needs a state and action to process. The action would be passed down from the dispatch function to the reducer as an argument. But since the reducer is now separate from Redux' `createStore()`, we need to pass the dispatch to a component (here, the App component) as props. Thus, the redux function `mapDispatchToProps()` comes into play in the app component:
 
 
 ```
