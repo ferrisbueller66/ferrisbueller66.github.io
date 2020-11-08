@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      "Crib Notes on Javascript's Hoisting, Closures, and Arrow Functions"
+title:      "Crib Notes on Javascript's Hoisting"
 date:       2020-07-25 01:40:01 -0400
 permalink:  crib_notes_on_javascripts_hoisting_closures_and_arrow_functions
 ---
@@ -249,20 +249,4 @@ Tokka's here to hurt you with a quiz.
 4. Can a function have access to more than just it's execution scope? Give two different examples.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
-## Level 5: Closures
-All of this discussion of compilation phase vs. execution phase, and global execution context vs. a function's execution context finally lead us to the topic of closures.
 
-However, we have one more feature in JS that needs to be discussed. We summarized scope chain and how a function has its own execution context. As a child, it has access to the scope (execution context) of any parent function in which it is nested, as wel as the global execution context. Children can access variables from parents, but parents cannot do the same with children. What the children have access to is lexical scope.
-
-
-Closures and Arrow Functions to follow in the next 48 hours...!
-
-We have to end with Super Shredder...and there's no way he's letting you off the hook without a final test.
-
-![](https://i.imgur.com/VDJAuSj.png)
-
-
-### Level 5 Quiz:
-
-1. Describe lexical scope
-2. What makes arrow functions so special?
